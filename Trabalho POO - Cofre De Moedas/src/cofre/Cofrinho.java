@@ -1,25 +1,40 @@
 package cofre;
 
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Cofrinho {
+    double total;
 
     //Lista conterá todas as moedas cadastradas
-    private ArrayList<Moeda> listaMoedas = new ArrayList<Moeda>();
+    private final ArrayList<Moeda> listaMoedas = new ArrayList<>();
 
     //Métodos
     public void adicionar (Moeda moeda){
         listaMoedas.add(moeda);
     }
+    
+    public void listarMoedas(){
 
-    public void remover(Moeda moeda){
-        Scanner tScanner = new Scanner(System.in);
-        for (int i = 0; i < listaMoedas.size(); i++){
-            System.out.println(listaMoedas.get(i));
+        for (int i = 0; i < listaMoedas.size(); i++) {
+            System.out.printf("[%d] - Tipo: %s, Valor: %2f%n", i, listaMoedas.get(i).tipo, listaMoedas.get(i).valor);
         }
-        listaMoedas.remove(0);
     }
+    public void remover(int moeda){
+        listaMoedas.remove(moeda);
+    }
+
+    public void totalConvertido(){
+        for (Moeda moeda : listaMoedas){
+            moeda.converter();
+            total += moeda.valor;
+            
+        }
+        System.out.printf("O total convertido para Real é: R$ %.2f\n", total);
+        
+    }
+
+
+    
 
 
 }
