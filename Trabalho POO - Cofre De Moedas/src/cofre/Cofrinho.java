@@ -27,6 +27,7 @@ public class Cofrinho {
         for (Moeda moeda : listaMoedas){
             moeda.converter();
             total += moeda.valor;
+            moeda.tipo = "Real";
             
         }
         System.out.printf("O total convertido para Real é: R$ %.2f\n", total);

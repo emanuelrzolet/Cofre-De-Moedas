@@ -56,12 +56,26 @@ public class Principal {
                             break;
                         }
                     case 3:
+                        System.out.println("-_-_-_-Lista De Moedas-_-_-_-");
                         cofre.listarMoedas();
                         System.out.println("Digite a moeda a ser removida: ");
-                        escolha = tScanner.nextInt();
+                        System.out.println("Qualquer outra tecla para voltar...");
+                        //Tratamento de erro
+                        try {
+                            escolha = tScanner.nextInt();
+                        } catch (IndexOutOfBoundsException e) {
+                            System.out.println("Valor digitado incorreto!");
+                            break;
+
+                        }
+                        catch (Exception generic){
+                            break;
+                        }
                         cofre.remover(escolha);
                         break;
                     case 4:
+                        System.out.println("-_-_-_-Convertendo Moedas Para Real-_-_-_-");
+                        //Aqui a função para converter é acionada, o tipo de moeda será alterado para evitar erros
                         cofre.totalConvertido();
                         break;
                         
