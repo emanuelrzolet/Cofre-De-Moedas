@@ -29,9 +29,13 @@ public class Cofrinho {
 
     public void totalConvertido(){
         for (Moeda moeda : listaMoedas){
-            moeda.converter();
+            //Caso nao for real a moeda será convertida.
+            if (!"Real".equals(moeda.tipo)){
+                moeda.converter();
+                moeda.tipo = "Real";
+            }
             total += moeda.valor;
-            moeda.tipo = "Real";
+            
             
         }
         System.out.printf("O total convertido para Real é: R$ %.2f\n", total);
