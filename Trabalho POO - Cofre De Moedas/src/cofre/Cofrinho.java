@@ -9,6 +9,10 @@ public class Cofrinho {
     private final ArrayList<Moeda> listaMoedas = new ArrayList<>();
 
     //Métodos
+    //Método testa se a lista está vazia
+    public boolean checarTamanho(){
+        return listaMoedas.isEmpty();
+    }
     public void adicionar (Moeda moeda){
         listaMoedas.add(moeda);
     }

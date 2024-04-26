@@ -1,5 +1,6 @@
 package cofre;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Principal {
@@ -58,15 +59,30 @@ public class Principal {
                     case 3:
                         System.out.println("-_-_-_-Lista De Moedas-_-_-_-");
                         cofre.listarMoedas();
-                        System.out.println("Digite a moeda a ser removida: ");
-                        System.out.println("Qualquer outra tecla para voltar...");
+                        System.out.println("Digite a moeda a ser removida ou qualquer outro número para sair: ");
+                        if (cofre.checarTamanho() == true){
+                            System.out.println("A lista está vazia");
+                            break;
+                        }
                         //Tratamento de erro
+                        //Impedindo a entrada de caracteres difentes de números inteiros
                         try {
-                            escolha = tScanner.nextInt();
+                            if (tScanner.hasNextInt()) {
+                                escolha = tScanner.nextInt();
+                            } else {
+                                System.out.println("Entrada inválida. Por favor, insira um número inteiro.");
+                                // Limpar o buffer do scanner para evitar loops infinitos
+                                tScanner.next();
+                                break;
+                            }
+                            
                         } catch (IndexOutOfBoundsException e) {
                             System.out.println("Valor digitado incorreto!");
                             break;
 
+                        }
+                        catch(InputMismatchException e){
+                            break;
                         }
                         catch (Exception generic){
                             break;
