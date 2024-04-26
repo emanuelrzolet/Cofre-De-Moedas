@@ -92,7 +92,13 @@ public class Principal {
                         catch (Exception generic){
                             break;
                         }
-                        cofre.remover(escolha);
+                        
+                        try{
+                        	cofre.remover(escolha);
+                        	}
+                        catch (IndexOutOfBoundsException ce) {
+                            System.out.println("Valor digitado incorreto!");
+                            break;}
                         break;
                     case 4:
                         System.out.println("-_-_-_-Convertendo Moedas Para Real-_-_-_-");
