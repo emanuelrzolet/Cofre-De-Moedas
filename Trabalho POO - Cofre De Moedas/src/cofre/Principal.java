@@ -22,8 +22,13 @@ public class Principal {
                 switch (escolha) {
                     
                     case 1:
-                        cofre.listarMoedas();
-                        break;
+                        if (cofre.checarTamanho() == true){
+                            System.out.println("A lista está vazia");
+                            break;
+                        }else{
+                            cofre.listarMoedas();
+                            System.out.println("Moeda foi adicionada.");
+                            break;}
                         
                     case 2:
                     	System.out.println("-_-_-_-Adicionando Moeda-_-_-_-");
