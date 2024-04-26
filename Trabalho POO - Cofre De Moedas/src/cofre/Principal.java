@@ -25,6 +25,7 @@ public class Principal {
                         break;
                         
                     case 2:
+                    	System.out.println("-_-_-_-Adicionando Moeda-_-_-_-");
                         System.out.println("Escolha o tipo de moeda para adicionar: ");
                         System.out.println("[1] - Real");
                         System.out.println("[2] - Dólar");
